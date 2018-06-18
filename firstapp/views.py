@@ -22,3 +22,15 @@ def main_page(request):
         'context_value': y,
     }
     return render(request, 'main_page.html', context)
+
+
+# выводит на экран инфу из поля контент
+def cnt(request, x):
+    y = Alex.objects.filter(slug=x).values_list()
+    template = "template.html"
+    context = {
+        'context': y[0][1],
+        'title': y[0][2]
+    }
+    return render(request, template, context)
+
