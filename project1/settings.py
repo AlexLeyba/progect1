@@ -75,11 +75,14 @@ WSGI_APPLICATION = 'project1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/my.cnf',
-        },
+        'NAME': 'project1_db',
+        'USER': 'dbuser',
+        'PASSWORD': '123',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
     }
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 

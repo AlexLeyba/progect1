@@ -25,6 +25,7 @@ urlpatterns = [
     re_path('^articles/(?P<x>\w+)/$', cnt),
     path('admin/articles/add/', add),
     path('admin/articles', articles),
-
+    re_path('^admin/articles_del/(?P<content>\w+)/$', articles_del),
+    re_path('^admin/articles/edit/(?P<slug>\w+)/$', articles_edit),
 
 ]

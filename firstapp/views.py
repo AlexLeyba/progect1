@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from typing import Dict, Any, Tuple
 
-# Create your views here.
+from django.shortcuts import render, redirect, HttpResponse
 from firstapp.models import Alex
 
 
@@ -58,3 +58,20 @@ def add(request):
         i = Alex.objects.create(content=a, title=a_2, slug=a_3)
         i.save()
     return render(request, 'admin/add.html')
+
+
+# удляет статью в админке
+def articles_del(request, content):
+    odj = Alex.objects.get(content=content).delete()
+    return redirect('http://127.0.0.1:8000/admin/articles/')
+
+
+# функция редактирования статьи в админке
+def articles_edit(request, slug):
+    y = Alex.objects.filter(slug=slug).values_list()
+    content = {
+        'content': y[0][1],
+        'title': y[0][2],
+        'slug': y[0][3]
+    }
+    return render(request, 'admin/edit.html', content)
