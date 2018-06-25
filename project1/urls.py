@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from firstapp.views import form_set, main_page, cnt
+from firstapp.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin),
     path('admin1/', form_set),
     path('', main_page),
     re_path('^element/(?P<x>\w+)/$', cnt),
+    re_path('^articles/(?P<x>\w+)/$', cnt),
+    path('admin/articles/add/', add),
+    path('admin/articles', articles),
+
+
 ]

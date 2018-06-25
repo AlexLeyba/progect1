@@ -1,0 +1,23 @@
+{% extends 'admin/admin.html' %}
+{% block content %}
+    <form action="http://127.0.0.1:8000/admin/articles/add/" method="post">
+            {% csrf_token %}
+
+    <input type="submit" class="btn btn-danger" value="Добавить статью" name="mybtn">
+    </form>
+{% if content_value %}
+        <ul class="list-group">
+            {% for e in content_value %}
+                <li class="list-group-item">
+                    {{ e.content  }}
+                    {{ e.title }}
+                    {{ e.slug }}
+                    <a class="align-right" href="element/{{ e.slug }}"> Watch </a>>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+
+{% endblock %}

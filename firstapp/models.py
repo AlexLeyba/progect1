@@ -1,8 +1,9 @@
 from django.db import models
 
 
-# Create your models here.
+# модели создают колонки у меня в базе данных
+
 class Alex(models.Model):
-    context = models.CharField(max_length=30)
+    content = models.CharField(max_length=30)
     title = models.CharField(max_length=30)
     slug = models.CharField(max_length=30)

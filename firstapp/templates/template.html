@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static "bootstrap-4.1.1-dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
 </head>
 <body>
     {% block content %}
         <div class="div">
-            <div class="context text-center">
-                <p>{{ context }}</p>
+            <div class="content text-center">
+                <p>{{ content }}</p>
             </div>
         </div>
     {% endblock %}
