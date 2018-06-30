@@ -36,8 +36,11 @@ def cnt(request, x):
 
 
 # функция для вывода админки
-def admin(request):
-    return render(request, 'admin/admin.html')
+def admins(request):
+    if request.user.is_authenticated and request.user.is_staff == 1:
+        return render(request, 'admin/admin.html')
+    else:
+        return render(request, 'admin/404.html')
 
 
 # вывод инфы из базы данных на articles.html
